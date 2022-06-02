@@ -83,14 +83,13 @@ using FlaschenpostChallengeApp.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\FetchData.razor"
-using FlaschenpostChallengeApp.Models;
+#line 1 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\ButtonRow.razor"
+using Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
-    public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class ButtonRow : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -98,19 +97,31 @@ using FlaschenpostChallengeApp.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\FetchData.razor"
+#line 9 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\ButtonRow.razor"
        
-  private IEnumerable<Product> products;
+  [Parameter]
+  public NavigationModel NavigationModel { get; set; }
 
-  protected override async Task OnInitializedAsync()
+  [Parameter]
+  public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
+
+  async Task ChangeView()
   {
-    products = await JsonConverter.GetProductsFromJsonAsync();
+    if (NavigationModel.IsDetailsView)
+    {
+      NavigationModel.IsDetailsView = false;
+      Console.WriteLine(NavigationModel.IsDetailsView.ToString());
+    }
+    else
+    {
+      NavigationModel.IsDetailsView = true;
+    }
+    await NavigationModelChanged.InvokeAsync(NavigationModel);
   }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
     }
 }
 #pragma warning restore 1591

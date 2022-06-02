@@ -1,6 +1,18 @@
 ﻿@page "/"
+@using Models
 
-<h1>Hello, world!</h1>
+  <ButtonRow @bind-NavigationModel="NavigationModel"></ButtonRow>
 
-Welcome to your new app.
+  @if (NavigationModel.IsDetailsView)
+  {
+    <Details></Details>
+  }
+  else
+  {
+    <Bottles></Bottles>
+  }
 
+@code
+{
+  public NavigationModel NavigationModel { get; set; } = new NavigationModel();
+}

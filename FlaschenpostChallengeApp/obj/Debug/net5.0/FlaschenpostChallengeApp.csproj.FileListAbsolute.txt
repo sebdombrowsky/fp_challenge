@@ -404,7 +404,6 @@ E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Flaschenp
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.MvcApplicationPartsAssemblyInfo.cache
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.RazorComponent.input.cache
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
-E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDeclaration\Pages\FetchData.razor.g.cs
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDeclaration\_Imports.razor.g.cs
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
@@ -415,7 +414,6 @@ E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Flaschenp
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.TagHelpers.output.cache
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.RazorCoreGenerate.cache
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\App.razor.g.cs
-E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\Pages\FetchData.razor.g.cs
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\_Imports.razor.g.cs
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\Shared\MainLayout.razor.g.cs
@@ -1254,3 +1252,9 @@ D:\BlazorApp\FlaschenpostChallengeApp\obj\Debug\net5.0\scopedcss\bundle\Flaschen
 D:\BlazorApp\FlaschenpostChallengeApp\obj\Debug\net5.0\scopedcss\projectbundle\FlaschenpostChallengeApp.bundle.scp.css
 D:\BlazorApp\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.RazorTargetAssemblyInfo.cache
 D:\BlazorApp\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.csproj.CopyComplete
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDeclaration\Pages\Bottles.razor.g.cs
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDeclaration\Pages\Details.razor.g.cs
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\Pages\Bottles.razor.g.cs
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\Pages\Details.razor.g.cs
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDeclaration\Pages\ButtonRow.razor.g.cs
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\Pages\ButtonRow.razor.g.cs

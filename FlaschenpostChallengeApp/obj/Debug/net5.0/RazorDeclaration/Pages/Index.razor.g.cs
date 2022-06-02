@@ -82,6 +82,13 @@ using FlaschenpostChallengeApp.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\Index.razor"
+using Models;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -90,6 +97,14 @@ using FlaschenpostChallengeApp.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 16 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\Index.razor"
+ 
+  public NavigationModel NavigationModel { get; set; } = new NavigationModel();
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

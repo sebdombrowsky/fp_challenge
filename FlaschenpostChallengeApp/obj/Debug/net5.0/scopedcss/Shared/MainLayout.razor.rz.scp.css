@@ -19,19 +19,23 @@
   background-color: purple;
 }
 
+.head > *[b-0jadue4mrb]
+{
+  flex:1;
+}
+
 @media (min-width: 641px) 
 {
   .page[b-0jadue4mrb] {
-    display: flex;
-    flex-direction: row;
   }
 
   .main[b-0jadue4mrb] {
-    flex: 1;
+    flex: 2;
   }
 
   .head[b-0jadue4mrb] {
     flex: 1;
     background-color: purple;
+    height:100%;
   }
 }

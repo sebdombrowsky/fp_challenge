@@ -1,0 +1,29 @@
+﻿@using Models
+
+<div>
+  <button >Sort</button>
+  <button @onclick="ChangeView">View</button>
+  <button>Filter</button>
+</div>
+
+@code {
+  [Parameter]
+  public NavigationModel NavigationModel { get; set; }
+
+  [Parameter]
+  public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
+
+  async Task ChangeView()
+  {
+    if (NavigationModel.IsDetailsView)
+    {
+      NavigationModel.IsDetailsView = false;
+      Console.WriteLine(NavigationModel.IsDetailsView.ToString());
+    }
+    else
+    {
+      NavigationModel.IsDetailsView = true;
+    }
+    await NavigationModelChanged.InvokeAsync(NavigationModel);
+  }
+}

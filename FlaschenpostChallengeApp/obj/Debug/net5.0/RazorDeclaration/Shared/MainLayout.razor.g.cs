@@ -82,6 +82,13 @@ using FlaschenpostChallengeApp.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Shared\MainLayout.razor"
+using Models;
+
+#line default
+#line hidden
+#nullable disable
     public partial class MainLayout : LayoutComponentBase
     {
         #pragma warning disable 1998

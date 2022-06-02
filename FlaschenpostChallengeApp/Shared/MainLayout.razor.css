@@ -27,16 +27,15 @@
 @media (min-width: 641px) 
 {
   .page {
-    display: flex;
-    flex-direction: row;
   }
 
   .main {
-    flex: 1;
+    flex: 2;
   }
 
   .head {
     flex: 1;
     background-color: purple;
+    height:100%;
   }
 }
