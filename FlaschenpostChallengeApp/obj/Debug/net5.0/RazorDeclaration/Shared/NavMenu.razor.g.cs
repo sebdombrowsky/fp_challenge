@@ -90,7 +90,7 @@ using FlaschenpostChallengeApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 23 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Shared\NavMenu.razor"
+#line 16 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
