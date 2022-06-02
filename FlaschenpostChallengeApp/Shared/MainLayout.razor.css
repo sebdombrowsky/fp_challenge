@@ -8,9 +8,20 @@
   flex: 1;
 }
 
+.main *
+{
+  display:flex;
+  justify-content:center;
+}
+
 .head {
   flex: 1;
   background-color: purple;
+}
+
+.head > *
+{
+  flex:1;
 }
 
 @media (min-width: 641px) 

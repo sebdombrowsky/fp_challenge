@@ -9,6 +9,12 @@
   flex: 1;
 }
 
+.main *[b-0jadue4mrb]
+{
+  display:flex;
+  justify-content:center;
+}
+
 .head[b-0jadue4mrb] {
   flex: 1;
   background-color: purple;
