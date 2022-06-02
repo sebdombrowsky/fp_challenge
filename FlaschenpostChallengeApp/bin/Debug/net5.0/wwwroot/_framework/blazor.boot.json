@@ -195,11 +195,11 @@
       "mscorlib.dll": "sha256-zMI\/dXK7DoZZ9Qm9U9\/jRN4iQ9Ss3w8\/rwQQxC6SW9Y=",
       "netstandard.dll": "sha256-W3q3PN+lpRB+tRJEIhtMgYOGFv0pauEeeCS9iIRkKAM=",
       "System.Private.CoreLib.dll": "sha256-9rUJv1mXEQdGt\/kWiJ1ITPPzp3cAi3lSmqHVTisp7w0=",
-      "FlaschenpostChallengeApp.dll": "sha256-L8aCVu42zFKp+JqM+jpa074t2WDVWRUPRDZpSXlpWqA="
+      "FlaschenpostChallengeApp.dll": "sha256-QNCyAQgAzB21s6J8OPgrhvpiw6f\/v\/HiuOcRzQHy8T0="
     },
     "lazyAssembly": null,
     "pdb": {
-      "FlaschenpostChallengeApp.pdb": "sha256-QUl6VJ6zN93uE8Y+nhcTv6xZBDF1TpwWIXYIE26ny5E="
+      "FlaschenpostChallengeApp.pdb": "sha256-doQkcfjGJMXQoyZjuW0DTuq7mQDVbJw5qEG7X6\/Bpuc="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-8oJip361m8OrfLRJOuIeswWKaoxtT27\/wINCxhn+s4c=",

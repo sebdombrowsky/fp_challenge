@@ -82,6 +82,13 @@ using FlaschenpostChallengeApp.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\FetchData.razor"
+using FlaschenpostChallengeApp.Models;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
     public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -91,25 +98,14 @@ using FlaschenpostChallengeApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 37 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\FetchData.razor"
+#line 26 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\FetchData.razor"
        
-    private WeatherForecast[] forecasts;
+  private IEnumerable<Product> products;
 
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
-    }
-
-    public class WeatherForecast
-    {
-        public DateTime Date { get; set; }
-
-        public int TemperatureC { get; set; }
-
-        public string Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-    }
+  protected override async Task OnInitializedAsync()
+  {
+    products = await JsonConverter.GetProductsFromJsonAsync();
+  }
 
 #line default
 #line hidden
