@@ -107,15 +107,17 @@ using Models;
 
   async Task ChangeView()
   {
-    if (NavigationModel.IsDetailsView)
-    {
-      NavigationModel.IsDetailsView = false;
-      Console.WriteLine(NavigationModel.IsDetailsView.ToString());
-    }
-    else
-    {
-      NavigationModel.IsDetailsView = true;
-    }
+    NavigationModel.IsDetailsView = NavigationModel.IsDetailsView ? false : true;
+    await NavigationModelChanged.InvokeAsync(NavigationModel);
+  }
+
+  async Task SortProducts()
+  {
+    await NavigationModelChanged.InvokeAsync(NavigationModel);
+  }
+
+  async Task FilterProducts()
+  {
     await NavigationModelChanged.InvokeAsync(NavigationModel);
   }
 

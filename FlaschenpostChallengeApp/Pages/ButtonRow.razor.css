@@ -1,0 +1,28 @@
+﻿.fpButtonRow
+{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  background-color:purple;
+}
+
+.fpButtonRow > button 
+{
+  flex:1;
+}
+
+button
+{
+  background-color:greenyellow;
+  border:0px solid black;
+  border-radius:10px;
+  padding: 4px 18px;
+  margin:5px 10px;
+  max-width:120px;
+}
+
+@media (min-width: 641px) {
+  .fpButtonRow {
+    justify-content: flex-start;
+  }
+}
