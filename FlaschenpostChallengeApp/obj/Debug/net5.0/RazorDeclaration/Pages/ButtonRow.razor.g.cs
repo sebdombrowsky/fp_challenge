@@ -113,11 +113,13 @@ using Models;
 
   async Task SortProducts()
   {
+    NavigationModel.SortAscending = NavigationModel.SortAscending ? false : true;
     await NavigationModelChanged.InvokeAsync(NavigationModel);
   }
 
   async Task FilterProducts()
   {
+    NavigationModel.FilterMoreExpensiveThan2 = NavigationModel.FilterMoreExpensiveThan2 ? false : true;
     await NavigationModelChanged.InvokeAsync(NavigationModel);
   }
 

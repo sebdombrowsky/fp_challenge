@@ -8,5 +8,9 @@ namespace FlaschenpostChallengeApp.Models
   public class NavigationModel
   {
     public bool IsDetailsView { get; set; } = true;
+
+    public bool SortAscending { get; set; } = true;
+
+    public bool FilterMoreExpensiveThan2 { get; set; } = false;
   }
 }

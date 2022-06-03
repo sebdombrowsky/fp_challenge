@@ -1,32 +1,68 @@
 ﻿@inject HttpClient Http
 @using FlaschenpostChallengeApp.Models
 
-<h1>Products</h1>
-
 @if (products == null)
 {
   <p><em>Loading...</em></p>
 }
 else
 {
-  foreach (var p in products)
+<div class="details">
+  @foreach (var p in products)
   {
-    <p>@p.Id</p>
-    <p>@p.BrandName</p>
-    foreach (var a in p.Articles)
+    @foreach (var a in p.Articles)
     {
-      <p>@a.Id</p>
-      <p>@a.Price</p>
-      <img src="@a.Image" />
+      <div class="item">
+        <div class="imageItem">
+          <img class="productImage" src="@a.Image" />
+        </div>
+        <div class="contentItem">
+          <span><b>@p.Name</b></span>
+          <span>@(a.Price + " €")</span>
+          <span>@a.ShortDescription</span>
+          <span>@a.PricePerUnitText</span>
+        </div>
+      </div>
     }
   }
+</div>
 }
 
 @code {
+  [Parameter]
+  public NavigationModel NavigationModel { get; set; }
+
+  [Parameter]
+  public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
+
   private IEnumerable<Product> products;
+
+  private Filter filter;
+
+  private bool initSort;
+
+  private bool initfilter;
 
   protected override async Task OnInitializedAsync()
   {
+    initSort = NavigationModel.SortAscending;
+    initfilter = NavigationModel.FilterMoreExpensiveThan2;
     products = await JsonConverter.GetProductsFromJsonAsync();
+    products = Sort.SplitProductsWithMoreThanOneArticle(products.ToList());
+    filter = new Filter(products);
+  }
+
+  protected override void OnParametersSet()
+  {
+    if(initSort != NavigationModel.SortAscending)
+    {
+      products = NavigationModel.SortAscending ? Sort.SortAscending(products.ToList()) : Sort.SortDescending(products.ToList());
+      initSort = NavigationModel.SortAscending;
+    }
+    if(initfilter != NavigationModel.FilterMoreExpensiveThan2)
+    {
+      products = NavigationModel.FilterMoreExpensiveThan2 ? filter?.FilterMoreExpensiveThanTwoEuros() : filter?.ShowAll();
+      initfilter = NavigationModel.FilterMoreExpensiveThan2;
+    }
   }
 }

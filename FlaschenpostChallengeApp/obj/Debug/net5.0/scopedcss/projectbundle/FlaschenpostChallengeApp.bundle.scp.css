@@ -1,12 +1,11 @@
 @import '';
 
 /* /Pages/ButtonRow.razor.rz.scp.css */
-.fpButtonRow[b-nr0efsshwq]
-{
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  background-color:purple;
+.fpButtonRow[b-nr0efsshwq] {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #a50a50;
 }
 
 .fpButtonRow > button[b-nr0efsshwq] 
@@ -14,20 +13,80 @@
   flex:1;
 }
 
-button[b-nr0efsshwq]
-{
-  background-color:greenyellow;
-  border:0px solid black;
-  border-radius:10px;
+button[b-nr0efsshwq] {
+  background-color: #82be3c;
+  border: 0px solid black;
+  border-radius: 10px;
   padding: 4px 18px;
-  margin:5px 10px;
-  max-width:120px;
+  margin: 5px 10px;
+  max-width: 120px;
+  color:white;
 }
 
 @media (min-width: 641px) {
-  .fpButtonRow[b-nr0efsshwq] {
-    justify-content: flex-start;
+}
+/* /Pages/Details.razor.rz.scp.css */
+.details[b-rhsmykbke5]
+{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+  .details > .item[b-rhsmykbke5] {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 1% 2%;
+    flex-direction:row;
+    background-color:whitesmoke;
+    margin:2% 4%;
   }
+
+.item > div[b-rhsmykbke5]
+{
+  flex:1;
+}
+
+.imageItem[b-rhsmykbke5]
+{
+  max-width:15%;
+  padding: 0 2%;
+}
+
+.productImage[b-rhsmykbke5] {
+  width: 100%;
+  height: auto;
+}
+
+span[b-rhsmykbke5]
+{
+  display:inherit;
+}
+
+@media (min-width: 641px) {
+  .details[b-rhsmykbke5]
+  {
+    display:block;
+  }
+    .details > .item[b-rhsmykbke5] {
+      width:46%;
+      margin:2% auto;
+    }
+
+  .productImage[b-rhsmykbke5]
+  {
+    width:15%;
+  }
+
+  .imageItem[b-rhsmykbke5] {
+    max-width: unset;
+    text-align: center;
+  }
+    .contentItem[b-rhsmykbke5]
+    {
+      text-align:right;
+    }
 }
 /* /Shared/MainLayout.razor.rz.scp.css */
 
@@ -48,7 +107,7 @@ button[b-nr0efsshwq]
 
 .head[b-0jadue4mrb] {
   flex: 1;
-  background-color: purple;
+  background-color: #a50a50;
 }
 
 .head > *[b-0jadue4mrb]
@@ -63,12 +122,6 @@ button[b-nr0efsshwq]
 
   .main[b-0jadue4mrb] {
     flex: 2;
-  }
-
-  .head[b-0jadue4mrb] {
-    flex: 1;
-    background-color: purple;
-    height:100%;
   }
 }
 /* /Shared/NavMenu.razor.rz.scp.css */

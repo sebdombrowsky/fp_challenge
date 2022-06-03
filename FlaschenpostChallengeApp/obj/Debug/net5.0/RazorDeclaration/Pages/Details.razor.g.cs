@@ -97,13 +97,43 @@ using FlaschenpostChallengeApp.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 25 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\Details.razor"
+#line 31 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\Details.razor"
        
+  [Parameter]
+  public NavigationModel NavigationModel { get; set; }
+
+  [Parameter]
+  public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
+
   private IEnumerable<Product> products;
+
+  private Filter filter;
+
+  private bool initSort;
+
+  private bool initfilter;
 
   protected override async Task OnInitializedAsync()
   {
+    initSort = NavigationModel.SortAscending;
+    initfilter = NavigationModel.FilterMoreExpensiveThan2;
     products = await JsonConverter.GetProductsFromJsonAsync();
+    products = Sort.SplitProductsWithMoreThanOneArticle(products.ToList());
+    filter = new Filter(products);
+  }
+
+  protected override void OnParametersSet()
+  {
+    if(initSort != NavigationModel.SortAscending)
+    {
+      products = NavigationModel.SortAscending ? Sort.SortAscending(products.ToList()) : Sort.SortDescending(products.ToList());
+      initSort = NavigationModel.SortAscending;
+    }
+    if(initfilter != NavigationModel.FilterMoreExpensiveThan2)
+    {
+      products = NavigationModel.FilterMoreExpensiveThan2 ? filter?.FilterMoreExpensiveThanTwoEuros() : filter?.ShowAll();
+      initfilter = NavigationModel.FilterMoreExpensiveThan2;
+    }
   }
 
 #line default

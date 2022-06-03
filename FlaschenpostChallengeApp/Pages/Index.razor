@@ -5,7 +5,7 @@
 
   @if (NavigationModel.IsDetailsView)
   {
-    <Details></Details>
+    <Details @bind-NavigationModel="NavigationModel"></Details>
   }
   else
   {

@@ -1259,3 +1259,4 @@ E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\Pag
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDeclaration\Pages\ButtonRow.razor.g.cs
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\Pages\ButtonRow.razor.g.cs
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\scopedcss\Pages\ButtonRow.razor.rz.scp.css
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\scopedcss\Pages\Details.razor.rz.scp.css

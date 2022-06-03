@@ -13,7 +13,7 @@ namespace FlaschenpostChallengeApp.Models
 
     public int Id { get; set; }
 
-    public string ShortDiscription { get; set; }
+    public string ShortDescription { get; set; }
 
     public double Price { get; set; }
 
@@ -22,5 +22,21 @@ namespace FlaschenpostChallengeApp.Models
     public string PricePerUnitText { get; set; }
 
     public string Image { get; set; }
+
+    public double ConvertPricePerUnitTextToDouble()
+    {
+      var c = PricePerUnitText.Split('(')[1];
+      var s = c.Substring(0, 4);
+      var r = s.Replace(',', '.');
+      bool hasValidPrice = double.TryParse(PricePerUnitText.Split('(')[1].Substring(0, 4), out double p);
+      if(hasValidPrice)
+      {
+        return p;
+      }
+      else
+      {
+        return 0.0;
+      }
+    }
   }
 }

@@ -1,9 +1,9 @@
 ﻿@using Models
 
 <div class="fpButtonRow">
-  <button>Sort</button>
+  <button @onclick="SortProducts">Sort</button>
   <button @onclick="ChangeView">View</button>
-  <button>Filter</button>
+  <button @onclick="FilterProducts">Filter</button>
 </div>
 
 @code {
@@ -21,11 +21,13 @@
 
   async Task SortProducts()
   {
+    NavigationModel.SortAscending = NavigationModel.SortAscending ? false : true;
     await NavigationModelChanged.InvokeAsync(NavigationModel);
   }
 
   async Task FilterProducts()
   {
+    NavigationModel.FilterMoreExpensiveThan2 = NavigationModel.FilterMoreExpensiveThan2 ? false : true;
     await NavigationModelChanged.InvokeAsync(NavigationModel);
   }
 }

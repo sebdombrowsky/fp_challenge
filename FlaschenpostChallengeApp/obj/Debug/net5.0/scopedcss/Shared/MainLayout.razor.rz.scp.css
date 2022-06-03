@@ -16,7 +16,7 @@
 
 .head[b-0jadue4mrb] {
   flex: 1;
-  background-color: purple;
+  background-color: #a50a50;
 }
 
 .head > *[b-0jadue4mrb]
@@ -31,11 +31,5 @@
 
   .main[b-0jadue4mrb] {
     flex: 2;
-  }
-
-  .head[b-0jadue4mrb] {
-    flex: 1;
-    background-color: purple;
-    height:100%;
   }
 }
