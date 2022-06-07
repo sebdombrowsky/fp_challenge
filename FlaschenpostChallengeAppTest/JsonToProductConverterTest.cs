@@ -44,12 +44,12 @@ namespace FlaschenpostChallengeAppTest
     [TestMethod]
     public void ConvertProductWithTwoArticlesTest()
     {
-      Product product = this.ProductList.Find(p => p.Articles.Count > 1) ;
+      Product productWithTwoArticles = this.ProductList.Find(p => p.Articles.Count > 1) ;
 
-      Assert.AreEqual(2, product.Articles.Count);
+      Assert.AreEqual(2, productWithTwoArticles.Articles.Count);
 
-      Assert.AreEqual((int)3006, product.Articles[0].Id);
-      Assert.AreEqual((int)6224, product.Articles[1].Id);
+      Assert.AreEqual((int)3006, productWithTwoArticles.Articles[0].Id);
+      Assert.AreEqual((int)6224, productWithTwoArticles.Articles[1].Id);
     }
   }
 }
