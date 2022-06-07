@@ -1,0 +1,26 @@
+﻿.bottles {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  display: flex;
+  width:80px;
+  padding: 2%;
+  align-items:flex-end;
+}
+
+.productImage {
+  flex: 1;
+  width:100%;
+  height: auto;
+}
+
+@media (min-width: 641px) {
+  .item
+  {
+    width: 8%;
+  }
+}

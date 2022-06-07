@@ -1,5 +1,35 @@
-﻿<h3>Bottles</h3>
+﻿@inject HttpClient Http
+@using FlaschenpostChallengeApp.Models
+
+@if (ProductsModel == null)
+{
+  <p><em>Loading...</em></p>
+}
+else
+{
+<div class="bottles">
+  @foreach (var p in ProductsModel)
+  {
+    @foreach (var a in p.Articles)
+    {
+      <div class="item">
+        <img class="productImage" src="@a.Image" />
+      </div>
+    }
+  }
+</div>
+}
 
 @code {
+  [Parameter]
+  public NavigationModel NavigationModel { get; set; }
 
+  [Parameter]
+  public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
+
+  [Parameter]
+  public List<Product> ProductsModel { get; set; }
+
+  [Parameter]
+  public EventCallback<List<Product>> ProductsModelChanged { get; set; }
 }
