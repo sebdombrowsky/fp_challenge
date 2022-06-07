@@ -25,15 +25,18 @@ namespace FlaschenpostChallengeApp.Models
       {
         foreach (var a in p.Articles)
         {
-          if(a.ConvertPricePerUnitTextToDouble() < 2)
-          filteredProducts.Add(new Product()
+          bool isValidDouble = a.ConvertPricePerUnitTextToDouble().HasValue && a.ConvertPricePerUnitTextToDouble() < 2;
+          if (isValidDouble)
           {
-            BrandName = p.BrandName,
-            Name = p.Name,
-            Id = p.Id,
-            DescriptionText = p.DescriptionText,
-            Articles = new List<Article>() { a },
-          });
+            filteredProducts.Add(new Product()
+            {
+              BrandName = p.BrandName,
+              Name = p.Name,
+              Id = p.Id,
+              DescriptionText = p.DescriptionText,
+              Articles = new List<Article>() { a },
+            });
+          }
         }
       }
       return filteredProducts;

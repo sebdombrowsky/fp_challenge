@@ -23,11 +23,8 @@ namespace FlaschenpostChallengeApp.Models
 
     public string Image { get; set; }
 
-    public double ConvertPricePerUnitTextToDouble()
+    public double? ConvertPricePerUnitTextToDouble()
     {
-      var c = PricePerUnitText.Split('(')[1];
-      var s = c.Substring(0, 4);
-      var r = s.Replace(',', '.');
       bool hasValidPrice = double.TryParse(PricePerUnitText.Split('(')[1].Substring(0, 4), out double p);
       if(hasValidPrice)
       {
@@ -35,7 +32,7 @@ namespace FlaschenpostChallengeApp.Models
       }
       else
       {
-        return 0.0;
+        return null;
       }
     }
   }
