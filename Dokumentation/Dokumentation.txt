@@ -1,0 +1,20 @@
+Infos:
+- blazor Webassembly
+- Visual Studio
+
+Starten:
+- .sln im Visual Studio öffnen, bauen und starten
+
+Entwicklung-Vorgehensweise:
+- Model angelegt
+- Json Converter erstellt
+- Views angelegt
+- Testprojekt erstellt
+- Filter- und Sortierungsmethoden erstellt
+- Styling hinzugefügt
+
+
+Probleme:
+- 
+
+Ideen:
