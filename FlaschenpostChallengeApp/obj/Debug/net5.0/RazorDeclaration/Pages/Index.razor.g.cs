@@ -98,9 +98,13 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 16 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\Index.razor"
+#line 8 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\Index.razor"
  
   public NavigationModel NavigationModel { get; set; } = new NavigationModel();
+
+  [Parameter]
+  public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
+
 
 #line default
 #line hidden

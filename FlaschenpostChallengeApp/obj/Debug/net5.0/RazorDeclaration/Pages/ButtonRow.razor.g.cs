@@ -97,7 +97,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\ButtonRow.razor"
+#line 16 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\ButtonRow.razor"
        
   [Parameter]
   public NavigationModel NavigationModel { get; set; }

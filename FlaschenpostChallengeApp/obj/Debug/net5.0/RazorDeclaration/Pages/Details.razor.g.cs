@@ -105,36 +105,11 @@ using FlaschenpostChallengeApp.Models;
   [Parameter]
   public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
 
-  private IEnumerable<Product> products;
+  [Parameter]
+  public List<Product> ProductsModel { get; set; }
 
-  private Filter filter;
-
-  private bool initSort;
-
-  private bool initfilter;
-
-  protected override async Task OnInitializedAsync()
-  {
-    initSort = NavigationModel.SortAscending;
-    initfilter = NavigationModel.FilterMoreExpensiveThan2;
-    products = await JsonConverter.GetProductsFromJsonAsync();
-    products = Sort.SplitProductsWithMoreThanOneArticle(products.ToList());
-    filter = new Filter(products);
-  }
-
-  protected override void OnParametersSet()
-  {
-    if(initSort != NavigationModel.SortAscending)
-    {
-      products = NavigationModel.SortAscending ? Sort.SortAscending(products.ToList()) : Sort.SortDescending(products.ToList());
-      initSort = NavigationModel.SortAscending;
-    }
-    if(initfilter != NavigationModel.FilterMoreExpensiveThan2)
-    {
-      products = NavigationModel.FilterMoreExpensiveThan2 ? filter?.FilterMoreExpensiveThanTwoEuros() : filter?.ShowAll();
-      initfilter = NavigationModel.FilterMoreExpensiveThan2;
-    }
-  }
+  [Parameter]
+  public EventCallback<List<Product>> ProductsModelChanged { get; set; }
 
 #line default
 #line hidden

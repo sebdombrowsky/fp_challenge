@@ -396,7 +396,6 @@ E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\bin\Debug\net5.0\wwwroot\_
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\bin\Debug\net5.0\wwwroot\_framework\icudt_EFIGS.dat
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\bin\Debug\net5.0\wwwroot\_framework\icudt_no_CJK.dat
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\bin\Debug\net5.0\wwwroot\_framework\dotnet.5.0.17.js
-E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.csproj.AssemblyReference.cache
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.GeneratedMSBuildEditorConfig.editorconfig
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.AssemblyInfoInputs.cache
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.AssemblyInfo.cs
@@ -1260,3 +1259,7 @@ E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDecl
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\Pages\ButtonRow.razor.g.cs
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\scopedcss\Pages\ButtonRow.razor.rz.scp.css
 E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\scopedcss\Pages\Details.razor.rz.scp.css
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\RazorDeclaration\Pages\Content.razor.g.cs
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\Razor\Pages\Content.razor.g.cs
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\scopedcss\Pages\Bottles.razor.rz.scp.css
+E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\obj\Debug\net5.0\FlaschenpostChallengeApp.csproj.AssemblyReference.cache

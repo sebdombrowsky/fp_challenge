@@ -1,6 +1,34 @@
 @import '';
 
+/* /Pages/Bottles.razor.rz.scp.css */
+.bottles[b-chsuqupkk4] {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item[b-chsuqupkk4] {
+  display: flex;
+  width:80px;
+  padding: 2%;
+  align-items:flex-end;
+}
+
+.productImage[b-chsuqupkk4] {
+  flex: 1;
+  width:100%;
+  height: auto;
+}
+
+@media (min-width: 641px) {
+  .item[b-chsuqupkk4]
+  {
+    width: 8%;
+  }
+}
 /* /Pages/ButtonRow.razor.rz.scp.css */
+
 .fpButtonRow[b-nr0efsshwq] {
   display: flex;
   flex-direction: row;
@@ -8,10 +36,9 @@
   background-color: #a50a50;
 }
 
-.fpButtonRow > button[b-nr0efsshwq] 
-{
-  flex:1;
-}
+  .fpButtonRow > button[b-nr0efsshwq] {
+    flex: 1;
+  }
 
 button[b-nr0efsshwq] {
   background-color: #82be3c;
@@ -19,11 +46,24 @@ button[b-nr0efsshwq] {
   border-radius: 10px;
   padding: 4px 18px;
   margin: 5px 10px;
-  max-width: 120px;
+  max-width: unset;
   color:white;
 }
 
+.filterButton[b-nr0efsshwq] {
+  background-color: darkblue;
+}
+
 @media (min-width: 641px) {
+  button[b-nr0efsshwq] {
+    background-color: #82be3c;
+    border: 0px solid black;
+    border-radius: 10px;
+    padding: 4px 18px;
+    margin: 5px 10px;
+    max-width: 120px;
+    color: white;
+  }
 }
 /* /Pages/Details.razor.rz.scp.css */
 .details[b-rhsmykbke5]
@@ -51,7 +91,7 @@ button[b-nr0efsshwq] {
 .imageItem[b-rhsmykbke5]
 {
   max-width:15%;
-  padding: 0 2%;
+  padding: 0 3% 0 0;
 }
 
 .productImage[b-rhsmykbke5] {

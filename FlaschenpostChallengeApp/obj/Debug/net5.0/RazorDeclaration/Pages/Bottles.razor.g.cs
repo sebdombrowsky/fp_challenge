@@ -82,6 +82,13 @@ using FlaschenpostChallengeApp.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\Bottles.razor"
+using FlaschenpostChallengeApp.Models;
+
+#line default
+#line hidden
+#nullable disable
     public partial class Bottles : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -89,6 +96,25 @@ using FlaschenpostChallengeApp.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 23 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\Bottles.razor"
+       
+  [Parameter]
+  public NavigationModel NavigationModel { get; set; }
+
+  [Parameter]
+  public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
+
+  [Parameter]
+  public List<Product> ProductsModel { get; set; }
+
+  [Parameter]
+  public EventCallback<List<Product>> ProductsModelChanged { get; set; }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
     }
 }
 #pragma warning restore 1591
