@@ -88,9 +88,21 @@ button[b-nr0efsshwq] {
   flex:1;
 }
 
+.heart[b-rhsmykbke5]
+{
+  font-size:40px;
+  cursor:pointer;
+  text-align:right;
+}
+
+.redHeart[b-rhsmykbke5]
+{
+  color: red;
+}
+
 .imageItem[b-rhsmykbke5]
 {
-  max-width:15%;
+  max-width: 15%;
   padding: 0 3% 0 0;
 }
 

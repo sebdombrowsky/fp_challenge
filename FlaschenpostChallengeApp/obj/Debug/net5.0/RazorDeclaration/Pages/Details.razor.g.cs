@@ -83,7 +83,7 @@ using FlaschenpostChallengeApp.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\github\fp_challenge\FlaschenpostChallengeApp\Pages\Details.razor"
+#line 3 "D:\github\fp_challenge\FlaschenpostChallengeApp\Pages\Details.razor"
 using FlaschenpostChallengeApp.Models;
 
 #line default
@@ -97,7 +97,7 @@ using FlaschenpostChallengeApp.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "D:\github\fp_challenge\FlaschenpostChallengeApp\Pages\Details.razor"
+#line 33 "D:\github\fp_challenge\FlaschenpostChallengeApp\Pages\Details.razor"
        
   [Parameter]
   public NavigationModel NavigationModel { get; set; }
@@ -111,9 +111,41 @@ using FlaschenpostChallengeApp.Models;
   [Parameter]
   public EventCallback<List<Product>> ProductsModelChanged { get; set; }
 
+  public async Task ChangeFavouriteStatusAsync(Article article)
+  {
+    if(!NavigationModel.FavouriteStatus.ContainsKey(article.Id))
+    {
+      NavigationModel.FavouriteStatus.Add(article.Id, true);
+    }
+    else
+    {
+      NavigationModel.FavouriteStatus[article.Id] = !NavigationModel.FavouriteStatus[article.Id];
+    }
+    await jsRuntime.InvokeVoidAsync("localStorage.setItem",article.Id, NavigationModel.FavouriteStatus[article.Id]);
+    await NavigationModelChanged.InvokeAsync(NavigationModel);
+    this.StateHasChanged();
+  }
+
+  protected override async Task OnInitializedAsync()
+  {
+    NavigationModel.FavouriteStatus = new Dictionary<int, bool>();
+    var list = await jsRuntime.InvokeAsync<string[]>("GetLocalStorage");
+    foreach(var s in list)
+    {
+      var status = await jsRuntime.InvokeAsync<string>("localStorage.getItem", s);
+      bool isKey = int.TryParse(s, out int key);
+      if(isKey)
+      {
+        bool value = status == "true" ? true : false;
+        NavigationModel.FavouriteStatus.Add(key, value);
+      }
+    }
+  }
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime jsRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
     }
 }
