@@ -20,9 +20,21 @@
   flex:1;
 }
 
+.heart
+{
+  font-size:40px;
+  cursor:pointer;
+  text-align:right;
+}
+
+.redHeart
+{
+  color: red;
+}
+
 .imageItem
 {
-  max-width:15%;
+  max-width: 15%;
   padding: 0 3% 0 0;
 }
 

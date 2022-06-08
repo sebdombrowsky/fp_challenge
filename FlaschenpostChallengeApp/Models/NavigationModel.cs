@@ -12,5 +12,7 @@ namespace FlaschenpostChallengeApp.Models
     public bool SortAscending { get; set; } = true;
 
     public bool FilterMoreExpensiveThan2 { get; set; } = false;
+
+    public Dictionary<int, bool> FavouriteStatus { get; set; } = new Dictionary<int, bool>();
   }
 }

@@ -1,4 +1,5 @@
 ﻿@inject HttpClient Http
+@inject IJSRuntime jsRuntime
 @using FlaschenpostChallengeApp.Models
 
 @if (ProductsModel == null)
@@ -20,7 +21,8 @@ else
           <span><b>@p.Name</b></span>
           <span>@(a.Price + " €")</span>
           <span>@a.ShortDescription</span>
-          <span>@a.PricePerUnitText</span>
+          <span>@a.PricePerUnitText</span>        
+          <span class="heart @(NavigationModel.FavouriteStatus.TryGetValue(a.Id, out bool v) && NavigationModel.FavouriteStatus[a.Id] ? "redHeart" : "")" @onclick="() => ChangeFavouriteStatusAsync(a)"><b>&#9825;</b></span>
         </div>
       </div>
     }
@@ -40,4 +42,35 @@ else
 
   [Parameter]
   public EventCallback<List<Product>> ProductsModelChanged { get; set; }
+
+  public async Task ChangeFavouriteStatusAsync(Article article)
+  {
+    if(!NavigationModel.FavouriteStatus.ContainsKey(article.Id))
+    {
+      NavigationModel.FavouriteStatus.Add(article.Id, true);
+    }
+    else
+    {
+      NavigationModel.FavouriteStatus[article.Id] = !NavigationModel.FavouriteStatus[article.Id];
+    }
+    await jsRuntime.InvokeVoidAsync("localStorage.setItem",article.Id, NavigationModel.FavouriteStatus[article.Id]);
+    await NavigationModelChanged.InvokeAsync(NavigationModel);
+    this.StateHasChanged();
+  }
+
+  protected override async Task OnInitializedAsync()
+  {
+    NavigationModel.FavouriteStatus = new Dictionary<int, bool>();
+    var list = await jsRuntime.InvokeAsync<string[]>("GetLocalStorage");
+    foreach(var s in list)
+    {
+      var status = await jsRuntime.InvokeAsync<string>("localStorage.getItem", s);
+      bool isKey = int.TryParse(s, out int key);
+      if(isKey)
+      {
+        bool value = status == "true" ? true : false;
+        NavigationModel.FavouriteStatus.Add(key, value);
+      }
+    }
+  }
 }
