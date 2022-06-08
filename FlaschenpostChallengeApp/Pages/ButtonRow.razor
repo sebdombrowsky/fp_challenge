@@ -1,9 +1,16 @@
 ﻿@using Models
 
 <div class="fpButtonRow">
-  <button @onclick="SortProducts">Sort</button>
-  <button @onclick="ChangeView">View</button>
-  <button @onclick="FilterProducts">Filter</button>
+  @if (NavigationModel.SortAscending)
+  {
+    <button @onclick="SortProducts">Sort by price &#x21E7;</button>
+  }
+  else
+  {
+    <button @onclick="SortProducts">Sort by price &#x21E9;</button>
+  }
+  <button @onclick="ChangeView">@(NavigationModel.IsDetailsView ? "Details " : "Bottles ")View</button>
+  <button class="@(NavigationModel.FilterMoreExpensiveThan2 ? "filterButton" : "")" @onclick="FilterProducts">Filter less than 2€</button>
 </div>
 
 @code {

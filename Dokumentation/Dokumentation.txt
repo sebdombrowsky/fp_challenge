@@ -1,0 +1,23 @@
+Infos:
+- blazor Webassembly
+- IDE: Visual Studio
+
+Starten:
+- .sln im Visual Studio öffnen, bauen und starten
+
+Entwicklung-Vorgehensweise:
+- Model angelegt
+- Json Converter erstellt
+- Views angelegt
+- Testprojekt erstellt
+- Filter- und Sortierungsmethoden erstellt
+- Styling hinzugefügt
+- Herz-Button erstellt
+
+Zusatzfeature:
+- Favourit Button, der Wert im localStorage des Browsers speichert und abruft
+
+Probleme:
+- Json-Converter: ein Produkt kann mehrere Artikel enthalten, deshalb musste ich den Model-Aufbau anpassen
+- Sortierung: Um nach Artikeln zu sortieren habe ich eine neue Liste erstellt, in der jedes Produkt nur einen Artikel hat
+- Filter: Für die Filterung nach Preis, musste eine String-Convert Methode gebaut werden, da der Preis anfangs nicht korrekt formatiert ist.

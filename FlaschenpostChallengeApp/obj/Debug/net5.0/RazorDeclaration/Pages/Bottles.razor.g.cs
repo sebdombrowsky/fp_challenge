@@ -13,71 +13,78 @@ namespace FlaschenpostChallengeApp.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 1 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 2 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 3 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 4 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 5 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 6 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 7 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 8 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 9 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using FlaschenpostChallengeApp;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 10 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using FlaschenpostChallengeApp.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\github\fp_challenge\FlaschenpostChallengeApp\Pages\Bottles.razor"
+using FlaschenpostChallengeApp.Models;
 
 #line default
 #line hidden
@@ -89,6 +96,25 @@ using FlaschenpostChallengeApp.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 23 "D:\github\fp_challenge\FlaschenpostChallengeApp\Pages\Bottles.razor"
+       
+  [Parameter]
+  public NavigationModel NavigationModel { get; set; }
+
+  [Parameter]
+  public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
+
+  [Parameter]
+  public List<Product> ProductsModel { get; set; }
+
+  [Parameter]
+  public EventCallback<List<Product>> ProductsModelChanged { get; set; }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -13,77 +13,77 @@ namespace FlaschenpostChallengeApp.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 1 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 2 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 3 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 4 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 5 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 6 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 7 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 8 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 9 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using FlaschenpostChallengeApp;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
+#line 10 "D:\github\fp_challenge\FlaschenpostChallengeApp\_Imports.razor"
 using FlaschenpostChallengeApp.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\Details.razor"
+#line 3 "D:\github\fp_challenge\FlaschenpostChallengeApp\Pages\Details.razor"
 using FlaschenpostChallengeApp.Models;
 
 #line default
@@ -97,7 +97,7 @@ using FlaschenpostChallengeApp.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "E:\flaschenpost\fp_challenge\FlaschenpostChallengeApp\Pages\Details.razor"
+#line 33 "D:\github\fp_challenge\FlaschenpostChallengeApp\Pages\Details.razor"
        
   [Parameter]
   public NavigationModel NavigationModel { get; set; }
@@ -105,40 +105,47 @@ using FlaschenpostChallengeApp.Models;
   [Parameter]
   public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
 
-  private IEnumerable<Product> products;
+  [Parameter]
+  public List<Product> ProductsModel { get; set; }
 
-  private Filter filter;
+  [Parameter]
+  public EventCallback<List<Product>> ProductsModelChanged { get; set; }
 
-  private bool initSort;
-
-  private bool initfilter;
+  public async Task ChangeFavouriteStatusAsync(Article article)
+  {
+    if(!NavigationModel.FavouriteStatus.ContainsKey(article.Id))
+    {
+      NavigationModel.FavouriteStatus.Add(article.Id, true);
+    }
+    else
+    {
+      NavigationModel.FavouriteStatus[article.Id] = !NavigationModel.FavouriteStatus[article.Id];
+    }
+    await jsRuntime.InvokeVoidAsync("localStorage.setItem",article.Id, NavigationModel.FavouriteStatus[article.Id]);
+    await NavigationModelChanged.InvokeAsync(NavigationModel);
+    this.StateHasChanged();
+  }
 
   protected override async Task OnInitializedAsync()
   {
-    initSort = NavigationModel.SortAscending;
-    initfilter = NavigationModel.FilterMoreExpensiveThan2;
-    products = await JsonConverter.GetProductsFromJsonAsync();
-    products = Sort.SplitProductsWithMoreThanOneArticle(products.ToList());
-    filter = new Filter(products);
-  }
-
-  protected override void OnParametersSet()
-  {
-    if(initSort != NavigationModel.SortAscending)
+    NavigationModel.FavouriteStatus = new Dictionary<int, bool>();
+    var list = await jsRuntime.InvokeAsync<string[]>("GetLocalStorage");
+    foreach(var s in list)
     {
-      products = NavigationModel.SortAscending ? Sort.SortAscending(products.ToList()) : Sort.SortDescending(products.ToList());
-      initSort = NavigationModel.SortAscending;
-    }
-    if(initfilter != NavigationModel.FilterMoreExpensiveThan2)
-    {
-      products = NavigationModel.FilterMoreExpensiveThan2 ? filter?.FilterMoreExpensiveThanTwoEuros() : filter?.ShowAll();
-      initfilter = NavigationModel.FilterMoreExpensiveThan2;
+      var status = await jsRuntime.InvokeAsync<string>("localStorage.getItem", s);
+      bool isKey = int.TryParse(s, out int key);
+      if(isKey)
+      {
+        bool value = status == "true" ? true : false;
+        NavigationModel.FavouriteStatus.Add(key, value);
+      }
     }
   }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime jsRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
     }
 }

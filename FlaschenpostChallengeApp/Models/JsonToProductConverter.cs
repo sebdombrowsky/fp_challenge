@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlaschenpostChallengeApp.Models
 {
-  public static class JsonConverter
+  public static class JsonToProductConverter
   {
     private static readonly string url = "https://flapotest.blob.core.windows.net/test/ProductData.json";
 

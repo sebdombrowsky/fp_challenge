@@ -2,17 +2,13 @@
 @using Models
 
   <ButtonRow @bind-NavigationModel="NavigationModel"></ButtonRow>
-
-  @if (NavigationModel.IsDetailsView)
-  {
-    <Details @bind-NavigationModel="NavigationModel"></Details>
-  }
-  else
-  {
-    <Bottles></Bottles>
-  }
+  <Content  @bind-NavigationModel="NavigationModel"></Content>
 
 @code
 {
   public NavigationModel NavigationModel { get; set; } = new NavigationModel();
+
+  [Parameter]
+  public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
+
 }

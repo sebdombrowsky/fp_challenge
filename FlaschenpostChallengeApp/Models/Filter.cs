@@ -14,10 +14,32 @@ namespace FlaschenpostChallengeApp.Models
       this.AllProducts = allProducts;
     }
 
+    /// <summary>
+    /// returns all products with articles, which are cheaper than 2€
+    /// </summary>
+    /// <returns></returns>
     public List<Product> FilterMoreExpensiveThanTwoEuros()
     {
-      var p = AllProducts.Where(p => p.Articles.FirstOrDefault().ConvertPricePerUnitTextToDouble() < 2.0).ToList();
-      return p;
+      List<Product> filteredProducts = new List<Product>();
+      foreach (var p in this.AllProducts)
+      {
+        foreach (var a in p.Articles)
+        {
+          bool isValidDouble = a.ConvertPricePerUnitTextToDouble().HasValue && a.ConvertPricePerUnitTextToDouble() < 2;
+          if (isValidDouble)
+          {
+            filteredProducts.Add(new Product()
+            {
+              BrandName = p.BrandName,
+              Name = p.Name,
+              Id = p.Id,
+              DescriptionText = p.DescriptionText,
+              Articles = new List<Article>() { a },
+            });
+          }
+        }
+      }
+      return filteredProducts;
     }
 
     public List<Product> ShowAll()

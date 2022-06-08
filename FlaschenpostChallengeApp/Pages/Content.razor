@@ -1,0 +1,56 @@
+﻿@using FlaschenpostChallengeApp.Models
+
+  @if (NavigationModel.IsDetailsView)
+  {
+    <Details @bind-NavigationModel="NavigationModel" @bind-ProductsModel="ProductsModel"></Details>
+  }
+  else
+  {
+    <Bottles @bind-NavigationModel="NavigationModel" @bind-ProductsModel="ProductsModel"></Bottles>
+  }
+
+@code {
+  [Parameter]
+  public NavigationModel NavigationModel { get; set; }
+
+  [Parameter]
+  public EventCallback<NavigationModel> NavigationModelChanged { get; set; }
+
+  [Parameter]
+  public List<Product> ProductsModel { get; set; }
+
+  [Parameter]
+  public EventCallback<List<Product>> ProductsModelChanged { get; set; }
+
+  private IEnumerable<Product> Products;
+
+  private Filter filter;
+
+  private bool initSort;
+
+  private bool initfilter;
+
+  protected override async Task OnInitializedAsync()
+  {
+    initSort = NavigationModel.SortAscending;
+    initfilter = NavigationModel.FilterMoreExpensiveThan2;
+    Products = await JsonToProductConverter.GetProductsFromJsonAsync();
+    Products = Sort.SplitProductsWithMoreThanOneArticle(Products.ToList());
+    filter = new Filter(Products);
+    ProductsModel = Products.ToList();
+  }
+
+  protected override void OnParametersSet()
+  {
+    if (initSort != NavigationModel.SortAscending)
+    {
+      ProductsModel = NavigationModel.SortAscending ? Sort.SortAscending(ProductsModel.ToList()) : Sort.SortDescending(ProductsModel.ToList());
+      initSort = NavigationModel.SortAscending;
+    }
+    if (initfilter != NavigationModel.FilterMoreExpensiveThan2)
+    {
+      ProductsModel = NavigationModel.FilterMoreExpensiveThan2 ? filter?.FilterMoreExpensiveThanTwoEuros() : filter?.ShowAll();
+      initfilter = NavigationModel.FilterMoreExpensiveThan2;
+    }
+  }
+}
